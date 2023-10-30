@@ -1,0 +1,97 @@
+#FRIDAY NIGHT PIZZA PARTY CODE STARTS HERE
+#Step 1
+#First assign the variables that are based on user input with the appropriate object type.
+
+from math import ceil
+
+num_people = int(input("Enter number of people for Friday: "))
+avg_slices = float(input("Enter average slices per person on Friday: "))
+cost_of_pizza = float(input("Enter cost of pizza for Friday: "))
+
+#Knowing that each pizza has 8 slices, we must find the total amount of whole pizzas needed, then divide it by 8. Average slices must be multiplied by the amount of people attending the party. Then, divide that product by 8 to get total pizzas. With this information, we can find the amount of pizzas needed to sustain everyone. Once done, we need to round up our function so we can get a realistic amount of pizzas. For example, if the pizzas needed are 2.3, we cannot get 2.3 pizzas. Instead, we get 3 pizzas. To round up, we use the ceil() function. To access this function, we must import ceil() from math, which is done at the very top. 
+
+whole_pizzas = int(ceil((avg_slices * num_people)/8))
+
+#Next, we want to know the total costs for the pizza. We can find this by multiplying the cost per pizza by the amount of pizzas we need. To do this mathmetically, we must give whole_pizzas the integer attribute int(). With that completed, we can now write the necessary function for the total cost.
+
+total_cost = whole_pizzas * cost_of_pizza
+
+
+#Lastly, to print all this infomration down, we first assign whole_pizzas right next to the string 'Pizzas:' in the print() function. For example, if we have the integer 4 under whole_pizzas, this function will print out '4 Pizzas:'. Next, we round the total cost to two decimal places by typing total_cost:.2f in the print() function. With the function set up, the output should be (for example): 4 Pizzas: $42.00.
+
+print("Friday Night Party")
+print(f'{whole_pizzas} Pizzas: ${total_cost:.2f}')
+
+#Step 2
+#Now to calculate sales tax. To calculate sales tax, multiply 0.07 with the total cost (since we want to find 7% of the total cost). After, the delivery cost must be calculated. The problem stated that the delivery cost was 20% of the total cost plus the sales tax. Writing it down, we must first follow the order of operations to use the 20% correctly. We do this by placing the two variables in the paranthesis first, then multiplying the sum by 0.2.
+
+sales_tax = total_cost * 0.07
+delivery_cost = (total_cost + sales_tax) * 0.2
+
+#Once done with the calculations, we can use the print function to print the sales tax and the delivery fee rounded to two decimal places.
+
+print(f'Tax: ${sales_tax:.2f}')
+print(f'Delivery: ${delivery_cost:.2f}')
+
+#Step 3
+#Now to calculate the total cost of the order. To do this, we add the sales tax, delivery fee, and the pizza cost.
+order_cost = sales_tax + delivery_cost + total_cost
+
+#Once done, we use the print() function to print out the total cost of the order.
+print(f'Total: ${order_cost:.2f}')
+
+#FRIDAY NIGHT PIZZA PARTY CODE ENDS HERE
+
+#SATURDAY NIGHT PIZZA PARTY CODE STARTS HERE
+#Step 4
+#For the Saturday Night Party, copy and paste all the code for Friday Night and add a few adjustments. For example, in the num_people1 variable, you can see I added 1 to num_people to make it a new variable performing the same function. I have used this method for every varibale in the code under Saturday Night Pizza Party. Also, instead of entering the number of people for Friday, I changed it to number of peopole for Saturday.
+
+num_people1 = int(input("Enter number of people for Saturday: "))
+avg_slices1 = float(input("Enter average slices per person on Saturday: "))
+cost_of_pizza1 = float(input("Enter cost of pizza for Saturday: "))
+
+whole_pizzas1 = int(ceil((avg_slices1 * num_people1)/8))
+total_cost1 = whole_pizzas1 * cost_of_pizza1
+
+print("Saturday Night Party")
+print(f'{whole_pizzas1} Pizzas: ${total_cost1:.2f}')
+
+sales_tax1 = total_cost1 * 0.07
+delivery_cost1 = (total_cost1 + sales_tax1) * 0.2
+
+print(f'Tax: ${sales_tax1:.2f}')
+print(f'Delivery: ${delivery_cost1:.2f}')
+
+order_cost1 = sales_tax1 + delivery_cost1 + total_cost1
+
+print(f'Total: ${order_cost1:.2f}')
+
+#SATURDAY NIGHT PIZZA PARTY CODE ENDS HERE
+
+#SUNDAY NIGHT PIZZA PARTY CODE STARTS HERE
+#Step 5
+#Here I repeated Step 4, and instead of Saturday I wrote Sunday. Also, I changed the variables slightly by writing 2 after them instead of 1, keeping them unique while performing the same function.
+
+num_people2 = int(input('Enter number of people for Sunday: '))
+avg_slices2 = float(input("Enter average slices per person on Sunday: "))
+cost_of_pizza2 = float(input("Enter cost of pizza for Sunday: "))
+
+whole_pizzas2 = int(ceil((avg_slices2 * num_people2)/8))
+total_cost2 = whole_pizzas2 * cost_of_pizza2
+
+print("Sunday Night Party")
+print(f'{whole_pizzas2} Pizzas: ${total_cost2:.2f}')
+
+sales_tax2 = total_cost2 * 0.07
+delivery_cost2 = (total_cost2 + sales_tax2) * 0.2
+
+print(f'Tax: ${sales_tax2:.2f}')
+print(f'Delivery: ${delivery_cost2:.2f}')
+
+order_cost2 = sales_tax2 + delivery_cost2 + total_cost2
+
+print(f'Total: ${order_cost2:.2f}')
+
+#Here I calculated the total cost for the whole weekend. I did this by adding all the order costs for Friday, Saturday, and Sunday.
+cost_of_orders = order_cost + order_cost1 + order_cost2
+print(f'Weekend Total: ${cost_of_orders:.2f}')
