@@ -1,0 +1,60 @@
+#Step 0
+user_list = [] #Create an empty list
+
+k = int(input('Enter number of inputs: ')) #Enter the number of elements that will be in the list
+
+for i in range(0, k): #Iterate user inputs based on range k and put them in user_list
+    g = int(input())
+    user_list.append(g)
+
+#Step 1
+def minimum(user_input): #Find the minimum value within the list by using a for loop
+    min = user_input[0] #Assign min value with the first element in the list
+    for i in user_input:
+        if i < min:     #If there is an element smaller, min is assigned with that new value
+            min = i
+    return min
+
+print(f'\nMinimum value: {minimum(user_list)}')
+
+def maximum(user_input): #Find the maximum value within the list by using a for loop
+    max = user_input[0] #Assign max value with the first element in the list
+    for i in user_input: 
+        if i > max:     #If there is an element larger, max is assigned with that new value
+            max = i
+    return max
+print(f'\nMaximum value: {maximum(user_list)}')
+
+#Step 2 
+def mean(user_input): #Find the mean based on the length of the list
+    m = sum(user_input)
+    avg = m / (len(user_input)) #Divide the sum of the elements by the amount of elements within the list
+    return avg
+print(f'\nMean value: {mean(user_list):.1f}')
+
+#Step 3 
+def palindrome(user_input): #Use if else statements and list slicing to find out whether the list is a palindrome
+    if user_input[::-1] == user_input:
+        return True           #If the list backwards equals the list forwards, then the list is a palindrome
+    else:
+        return False
+print(f'\nPalindrome: {palindrome(user_list)}')
+
+#Step 4
+def median(user_input): #Use the sort() function to sort the list from least to greatest
+    sorted_list = user_input.sort()
+    
+    j = len(user_input) #Assign a variable with the length of the list
+    L = j // 2 #Use floor division on the length of the list to find the middle index
+
+    if len(user_input) % 2 == 0: #If length is even, add up the estimated middle element and the element before it, then divide by 2
+        return (user_input[L-1] + user_input[L]) / 2
+    else:     
+        return user_input[L] #If length is odd, use the middle index
+    
+print(f'\nMedian: {median(user_list):.1f}')
+
+#Step 5
+def mode(user_input): #Define mode function
+    return max(user_input, key=user_input.count) #The user_input.count function counts the amount of occurances for every key (or element) in user_input. The max function brings out the maximum amount of occurances for the specific element in the list.
+print(f'\nMode: {mode(user_list)}\n') 
